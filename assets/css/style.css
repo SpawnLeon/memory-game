@@ -64,9 +64,9 @@ html, body {
 }
 
 main {
-  display: block;
-  z-index: 1;
-  position: relative;
+  display  : block;
+  z-index  : 1;
+  position : relative;
 }
 
 .memory-game {
@@ -122,22 +122,22 @@ main {
 
 
 .winner-table-wrapper {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #000000d4;
-  display : flex;
-  align-items : center;
-  justify-content : center;
-  flex-direction: column;
+  position         : fixed;
+  top              : 0;
+  left             : 0;
+  right            : 0;
+  bottom           : 0;
+  background-color : #000000d4;
+  display          : flex;
+  align-items      : center;
+  justify-content  : center;
+  flex-direction   : column;
 }
 
 .winner-table {
-  background-color: #fff;
-  padding: 30px 46px;
-  border-radius: 5px;
+  background-color : #fff;
+  padding          : 30px 46px;
+  border-radius    : 5px;
 }
 
 .table__row {
@@ -145,19 +145,19 @@ main {
 }
 
 .table__row--active {
-  border: 2px solid #f00;
+  border : 2px solid #f00;
 
 }
 
 .btn {
-  margin: 15px;
-  background-color: #37474f;
-  color: #fff;
-  padding: 15px 30px;
-  border-radius: 5px;
-  border: none;
-  cursor: pointer;
-  transition: background-color 0.3s;
+  margin           : 15px;
+  background-color : #37474f;
+  color            : #fff;
+  padding          : 15px 30px;
+  border-radius    : 5px;
+  border           : none;
+  cursor           : pointer;
+  transition       : background-color 0.3s;
 }
 
 .btn:hover,
