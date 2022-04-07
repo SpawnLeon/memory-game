@@ -9,7 +9,6 @@ const images = [
   './assets/images/turtle.png',
 ];
 
-
 let firstCard = null;
 let secondCard = null;
 
@@ -18,6 +17,12 @@ let openCards = 0;
 
 function shuffle(array) {
   array.sort(() => Math.random() - 0.5);
+}
+
+function unFlip() {
+  setTimeout(() => {
+    this.classList.remove('memory-card--flip');
+  }, 500);
 }
 
 function getWinnerTable() {
@@ -31,6 +36,7 @@ function setWinnerTable(winnerTable) {
 function renderWinner() {
   setTimeout(() => {
     const winnerTable = getWinnerTable();
+    // eslint-disable-next-line no-alert
     const name = prompt('Game over. Enter your name.');
     const currentWinner = { name, steps };
     winnerTable.push(currentWinner);
@@ -42,13 +48,14 @@ function renderWinner() {
         <p>You completed the game in ${steps} moves</p>
         <div class="table">
           ${winnerTable
-      .sort((a, b) => a.steps - b.steps)
-      .slice(0, 10)
-      .map(
-        winner => {
-          const activeClass = currentWinner === winner ? 'table__row--active' : '';
-          return `<div class="table__row ${activeClass}"><b>${winner.name}</b>: ${winner.steps}</div>`;
-        }).join('')}    
+    .sort((a, b) => a.steps - b.steps)
+    .slice(0, 10)
+    .map(
+      (winner) => {
+        const activeClass = currentWinner === winner ? 'table__row--active' : '';
+        return `<div class="table__row ${activeClass}"><b>${winner.name}</b>: ${winner.steps}</div>`;
+      },
+    ).join('')}    
       </div>
     </div>    
   `);
@@ -62,11 +69,9 @@ function renderWinner() {
 
     setWinnerTable(winnerTable);
   });
-
 }
 
 function flip() {
-
   if (firstCard === this) {
     return;
   }
@@ -92,25 +97,14 @@ function flip() {
         renderWinner();
       }
     } else {
-
-
       unFlip.call(firstCard);
       unFlip.call(secondCard);
-
     }
     setTimeout(() => {
       firstCard = null;
       secondCard = null;
     }, 500);
   }
-
-}
-
-function unFlip() {
-  setTimeout(() => {
-    this.classList.remove('memory-card--flip');
-  }, 500)
-
 }
 
 const renderCard = (image) => {
@@ -123,13 +117,10 @@ const renderCard = (image) => {
     <div class="back-face"></div>
   `;
   return card;
-
 };
 
-const doubleImage = images.flatMap(i => [i, i]);
+const doubleImage = images.flatMap((i) => [i, i]);
 
 shuffle(doubleImage);
 
-doubleImage.map(renderCard).forEach(el => APP.appendChild(el));
-
-
+doubleImage.map(renderCard).forEach((el) => APP.appendChild(el));
